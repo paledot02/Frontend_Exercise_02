@@ -1,0 +1,365 @@
+// ------ SASS
+
+// fuente de texto
+$font-family-sans-serif: 'Roboto';
+
+// tamaño de fuentes (por default 1)
+$font-size-base: 0.9rem;
+
+// colores 
+$kevin_oscuro_1:#1B1F23; // por seacaso
+$kevin_oscuro_2:#2B2F33; // principal, sidebar
+$kevin_claro_1:#3F4449; // secundario, toobar
+$kevin_claro_2:#5F6770; // borde
+$kevin_verde_claro: #284F53; // para resaltar
+$kevin_verde_oscuro: #1F3A3D; // para resaltar pero mas oscuro
+$kevin_rojo: #BF5253;
+$kevin_font: #f6f7f9; // fondo para el contenido principal
+$kevin_blue: #005AA4;
+
+$dark:      $kevin_oscuro_1 !default;
+$primary:   $kevin_oscuro_2 !default;
+$secondary: $kevin_claro_1 !default;
+$warning:   $kevin_claro_2 !default;
+$success:   $kevin_verde_claro !default;
+$info:      $kevin_verde_oscuro !default;
+$danger:    $kevin_rojo !default;
+$light:     $kevin_font !default;
+
+
+
+// esto modifica la unidad de medida utilizada para crear los margin y padding
+// la medida del 'spacer' original es de '1rem'
+$spacer: 0.8rem;
+
+$accordion-padding-y:                     0.5rem; // 1
+$accordion-padding-x:                     0.9rem; // 1.25
+$accordion-color:                         $light;
+$accordion-bg:                            $secondary;// rgba(40,79,83,0.2);
+$accordion-border-width:                  1px; //--> ancho del borde del acordeon
+$accordion-border-color:                  $warning;//#284F53;
+$accordion-button-active-bg:              $warning; // color del boton cuando se activa
+$accordion-button-active-color:           shade-color($primary, 10%);
+$accordion-icon-active-color:             $light; // color del icono cuando se activa
+
+// input -> para el login
+$input-btn-padding-y:                     .25rem !default; // modifica el padding-y de los inputs y botones.
+$input-padding-x:                         0.9rem; // paddin-y solo de los inputs
+$input-border-color:                    rgba(200,200,200,1);//$secondary; // color del borde de un pixel que rodea al input
+/*
+$input-focus-border-color:           rgba(200,200,200,1);
+$input-color:                          $light; // color de letra cuando no se tiene el foco
+$input-bg:                             $dark; // color de fondo cuando no se tiene el foco
+$input-focus-bg:                       $dark; // fondo cuando tiene el foco
+$input-focus-color:                    $light; // texto al escribir
+*/
+$input-btn-focus-width:                  .15rem !default; // blur - ancho en el focus
+$input-btn-focus-color-opacity:          .25 !default; // blur - opacidad del color en el focus
+$component-active-bg:                    $success !default; // color del blur borde de todos los componentes que utilizan esta variable
+$input-focus-border-color:               rgba($success,0.5) !default; // color de borde cuando obtiene el foco los componentes
+
+$form-select-bg:                    rgba(233,236,239,1); // color de fondo de los select.
+//$form-select-disabled-bg:           $gray-200;
+
+// table ->
+$table-cell-padding-y:        .1rem; // default .5
+$table-cell-padding-x:        .5rem; // default .5
+$table-color:                 $dark; // color fuente de texto de la tabla
+$table-bg:                    transparent; // color fondo de toda la tabla
+$table-accent-bg:             transparent; // filas claras de la tabla empezando por la primera, color fondo
+$table-striped-color:         $dark; //  filas oscuras empezando por la 2da, color de fuente
+$table-striped-bg:            rgba(210,210,210,0.5); // filas oscuras color de fondo
+$table-border-color:          rgba(210,210,210,1); // color del borde
+
+// DROPDOWN
+
+$dropdown-link-hover-bg:      rgba(rgb(37, 184, 37), .15);
+
+
+// -------------- ESTILOS PERSONALIDOS CON CSS
+/*
+100% : ocupa el 100% del contenido
+100vh: ocupa el 100% del tamaño principal de la pantalla, si el contenido sobrepasa el 
+       tamaño de la pantalla no lo cuenta
+*/
+
+.cabeza {
+    position: fixed;
+    width: 100%;
+    height: 46px;
+    padding-left: 230px;
+}
+    .cabeza>div{
+        padding: 7px;
+    }
+        .div_usuario{
+            width: 150px;
+            border-left: $warning 2px solid;
+        }
+        .dropdown_kevin{
+            box-shadow: 0px 0px 10px rgba($kevin_claro_1, .3);
+            //filter: blur(5px);
+        }
+.lateral {
+    position: fixed;
+    width: 230px;
+    border-right: 1px solid $warning;
+}
+    .lateral img{
+        width: 100%;
+        padding: 20px 20px 0 20px;
+    }
+    .separador{
+        border-top: 1px solid $warning ;
+        height: 0px;
+        margin: 20px 0;
+    }
+    .opcion{
+        text-decoration: none;
+        color: $light;
+        height: 32px;
+        font-weight: 500;
+        align-items: center;
+        padding: 0 15px;
+    }
+    .opcion:hover{
+        background-color: $success;
+        transition: 100ms;
+        color: $light
+    }
+
+.principal {
+    padding: 45px 0 0 230px;
+    justify-content: space-between;
+}
+// si solo ponemos height 48 se seguira deformando el alto porque es 
+// flexible, por eso tenemos que anclarlo por arriba y por abajo
+.pie {
+    min-height: 48px;
+    max-height: 48px;
+}
+@media (max-width: 900px){
+    .lateral{
+        margin-left: -230px;
+        transition: 100ms;
+    }
+    .principal {
+        padding-left: 0px;
+        transition: 100ms;
+    }
+    .cabeza{
+        padding-left: 0px;
+        transition: 100ms;
+    }
+}
+.login{
+    width: 300px;
+}
+.login_input{
+    padding: 4px 14px;
+}
+::-ms-reveal { // invierte todo el icono del boton incluido los colores
+    filter: invert(100%);
+}
+.alerta{
+    width: 280px;
+    height: 50px;
+    margin-left: 5px;
+    padding: 5px;
+}
+    .alerta_img{
+        position: relative; // para la animacion
+        width: 40px;
+        height: 40px;
+        
+    }
+    .alerta_texto{
+        width: 225px;
+        margin-left: 5px;
+    }
+    .alerta_titulo{
+        font-size: 13px;
+        height: 17px;
+        border-left: #5F6770 1px solid;
+    }
+    .alerta_mensaje{
+        height: 23px;
+        border-left: #5F6770 1px solid;
+    }
+
+// ------------------------- solucion descartada ----------------------------------
+/*.circulo{
+    width: 10px;
+    height: 10px;
+    background-color: #BF5253;
+    border-radius: 50%;
+    position: absolute;
+    left: 5px;
+    top: 20px;
+
+    animation: movimiento 3s infinite;
+    transition: 100ms;
+
+}
+
+@keyframes movimiento{
+    0%{transform: translate(0px,0px) rotate(0deg);}
+    50%{transform: translate(10px, 10px) rotate(-15deg);}
+    100%{transform: translate(20px, -10px) rotate(0deg);}
+}*/
+// -------------------------------------------------------------
+
+
+/* Crear animacion:
+    0. los svg trabajan con Id no con Class.
+    1. definir en los trazos de la imagen SVG donde inicia y finaliza el trazo
+    2. animarlo 
+    
+    Subanimaciones:
+    - linear: velocidad constante
+    - ease: lento -> rapido -> lento
+    - ease-in: lento -> rapido
+    - ease-out: rapido -> lento
+    
+    */
+
+.github {
+    animation: meneo 1s .5s linear infinite;
+}
+@keyframes meneo { // se genera una pausa entre repeticion usando los porcentajes
+    0%, 7% {
+        transform: rotateZ(0);
+      }
+      15% {
+        transform: rotateZ(-15deg);
+      }
+      20% {
+        transform: rotateZ(10deg);
+      }
+      25% {
+        transform: rotateZ(-10deg);
+      }
+      30% {
+        transform: rotateZ(6deg);
+      }
+      35% {
+        transform: rotateZ(-4deg);
+      }
+      40%, 100% {
+        transform: rotateZ(0);
+      }
+
+}
+
+
+#svg_check{
+    padding: 6px;
+    stroke: rgb(110, 163, 30); // si dentro en la etiqueta SVG esta definida esta propiedad no funcionara esto.
+    //fill: // es para el color de fondo en trazos que cerrados.
+    stroke-dasharray: 170; // longitud de los guiones alternos y espacios entre ellos
+    stroke-dashoffset: 170; // desplazamiento entre el inicio y el primer guion, no crea espacio en blanco simplemente desplaza la recta punteada.
+    animation: trazo_01 1s .3s ease infinite; // animacion - duracion - delay - subanimation(slow->fast->slow) - propiedad(mantiene ultimo fotograma: forward - bucle : infinite)
+}
+@keyframes trazo_01 { // se genera una pausa entre repeticion usando los porcentajes
+    0%{ stroke-dashoffset: 170; opacity: 1; }
+    80%{ stroke-dashoffset: 0; opacity: 1; }
+    100%{ stroke-dashoffset: 0; opacity: 0; }
+}
+
+
+#svg_cruz{
+    padding: 10px;
+    stroke: firebrick;
+}
+#svg_cruz_01{
+    stroke-dasharray: 170;
+    stroke-dashoffset: 170;
+    animation: trazo_02 1s 0s ease infinite;
+}
+#svg_cruz_02{
+    stroke-dasharray: 170;
+    stroke-dashoffset: 170;
+    animation: trazo_03 1s 0s ease infinite;
+}
+@keyframes trazo_02 {
+    0%{ stroke-dashoffset: 170; opacity: 1; }
+    50%{ stroke-dashoffset: 0; opacity: 1; }
+    70%{ stroke-dashoffset: 0; opacity: 1; }
+    100%{ stroke-dashoffset: 0; opacity: 0; }
+}
+@keyframes trazo_03 {
+    0%{ stroke-dashoffset: 170; opacity: 1; }
+    50%{ stroke-dashoffset: 170; opacity: 1; }
+    70%{ stroke-dashoffset: 0; opacity: 1; }
+    100%{ stroke-dashoffset: 0; opacity: 0; }
+}
+
+
+#svg_excl{
+    height: 40px;
+    stroke: darkorange;
+    fill: darkorange;
+    transform: perspective(1cm) rotateX(-45deg);
+    position: absolute;
+    top: 5px;
+}
+#svg_excl_01{
+    //transform: rotateX( 45deg );
+    stroke-dasharray: 170;
+    stroke-dashoffset: 170;
+    animation: trazo_02 1s 0s ease infinite;
+}
+#svg_excl_02{
+    animation: trazo_04 1s 0s ease infinite;
+}
+@keyframes trazo_04 {
+    0%{ opacity: 0; }
+    50%{ opacity: 0; }
+    70%{ opacity: 1; }
+    100%{ opacity: 0; }
+}
+
+
+#svg_candado{
+    padding: 1px 0 2px 0;
+    height: 37px;
+    position: relative;
+    animation: movimiento_3 1s 0s ease infinite;
+}
+#sonido{
+    fill:white;
+    opacity: 0;
+    animation: movimiento_1 1s 0s ease infinite;
+}
+#cerradura{
+    fill: white;
+    transform: translateY(0px);
+    animation: movimiento_2 1s 0s ease infinite;
+}
+#cerradura_inf{
+    fill:white;
+}
+@keyframes movimiento_1 {
+    0%{ opacity: 0; }
+    70%{ opacity: 0; }
+    80%{ opacity: 1; }
+    100%{ opacity: 0; }
+}
+@keyframes movimiento_2 {
+    0%{ transform: translateY(0px) }
+    10%{ transform: translateY(0px) }
+    80%{ transform: translateY(24px) }
+    100%{ transform: translateY(20px) }
+}
+@keyframes movimiento_3 {
+    0%{ transform: translateX(0px) }
+    80%{ transform: translateX(0px) }
+    85%{ transform: translateX(2px) }
+    90%{ transform: translateX(0px) }
+    95%{ transform: translateX(-2px) }
+    100%{ transform: translateX(0px) }
+}
+
+
+
+@import "../node_modules/bootstrap/scss/bootstrap";
